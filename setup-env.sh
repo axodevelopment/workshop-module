@@ -150,6 +150,78 @@ else
     fi
 fi
 
+# setup build-deploy.sh
+# Path to script
+SCRIPT_NAME="check-resources.sh"
+VALIDATION_SCRIPT="${SCRIPT_DIR}/resources/scripts/${SCRIPT_NAME}"
+
+print_status "INFO" "Sourcing validation script from ${VALIDATION_SCRIPT}"
+
+if [[ ! -f "$VALIDATION_SCRIPT" ]]; then
+    print_status "ERROR" "Validation script not found at ${VALIDATION_SCRIPT}"
+    print_status "INFO" "Please run setup-env.sh from the root directory.  Same directory as pom.xml."
+    exit 1
+else
+    print_status "INFO" "Making [${SCRIPT_NAME}] executable..."
+    chmod +x "$VALIDATION_SCRIPT"
+    
+
+    if [[ -x "$VALIDATION_SCRIPT" ]]; then
+        print_status "OK" "Validation script [${SCRIPT_NAME}] is now executable"
+    else
+        print_status "ERROR" "Failed to make [${SCRIPT_NAME}] executable"
+        exit 1
+    fi
+fi
+
+# setup get-users.sh
+# Path to script
+SCRIPT_NAME="get-users.sh"
+VALIDATION_SCRIPT="${SCRIPT_DIR}/resources/scripts/${SCRIPT_NAME}"
+
+print_status "INFO" "Sourcing validation script from ${VALIDATION_SCRIPT}"
+
+if [[ ! -f "$VALIDATION_SCRIPT" ]]; then
+    print_status "ERROR" "Validation script not found at ${VALIDATION_SCRIPT}"
+    print_status "INFO" "Please run setup-env.sh from the root directory.  Same directory as pom.xml."
+    exit 1
+else
+    print_status "INFO" "Making [${SCRIPT_NAME}] executable..."
+    chmod +x "$VALIDATION_SCRIPT"
+    
+
+    if [[ -x "$VALIDATION_SCRIPT" ]]; then
+        print_status "OK" "Validation script [${SCRIPT_NAME}] is now executable"
+    else
+        print_status "ERROR" "Failed to make [${SCRIPT_NAME}] executable"
+        exit 1
+    fi
+fi
+
+# setup pvcs.sh
+# Path to script
+SCRIPT_NAME="pvcs.sh"
+VALIDATION_SCRIPT="${SCRIPT_DIR}/resources/scripts/${SCRIPT_NAME}"
+
+print_status "INFO" "Sourcing validation script from ${VALIDATION_SCRIPT}"
+
+if [[ ! -f "$VALIDATION_SCRIPT" ]]; then
+    print_status "ERROR" "Validation script not found at ${VALIDATION_SCRIPT}"
+    print_status "INFO" "Please run setup-env.sh from the root directory.  Same directory as pom.xml."
+    exit 1
+else
+    print_status "INFO" "Making [${SCRIPT_NAME}] executable..."
+    chmod +x "$VALIDATION_SCRIPT"
+    
+
+    if [[ -x "$VALIDATION_SCRIPT" ]]; then
+        print_status "OK" "Validation script [${SCRIPT_NAME}] is now executable"
+    else
+        print_status "ERROR" "Failed to make [${SCRIPT_NAME}] executable"
+        exit 1
+    fi
+fi
+
 # setup workshop.sh
 # Path to script (local directory)
 SCRIPT_NAME="workshop.sh"

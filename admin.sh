@@ -4,8 +4,6 @@
 # Usage: ./admin.sh [command]
 # Commands: get-users, check-resources, pvcs
 
-# NOTE: Users if not familiar with the appropriate mvn commands can use this to deploy.
-
 set -e
 
 # Colors for output
@@ -22,15 +20,15 @@ SCRIPTS_DIR="${SCRIPT_DIR}/resources/scripts"
 # Function to print usage
 show_usage() {
     echo -e "${BLUE}===========================================${NC}"
-    echo -e "${BLUE}  Workshop Script${NC}"
+    echo -e "${BLUE}  Admin Script${NC}"
     echo -e "${BLUE}===========================================${NC}"
     echo ""
     echo "Usage: $0 [command]"
     echo ""
     echo "Available commands:"
-    echo -e "  ${GREEN}check${NC}      - Validate workshop environment"
-    echo -e "  ${GREEN}deploy${NC}     - Deploy the application"
-    echo -e "  ${GREEN}components${NC} - Check/deploy required components"
+    echo -e "  ${GREEN}get-users${NC}      - Gets a list of users based upon project naming"
+    echo -e "  ${GREEN}check-resources${NC}     - Checks resources per user"
+    echo -e "  ${GREEN}pvcs${NC} - Check/deploy required components"
     echo ""
     echo "Examples:"
     echo "  $0 check"
