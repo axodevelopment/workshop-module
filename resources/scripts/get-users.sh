@@ -42,3 +42,16 @@ print_status() {
             ;;
     esac
 }
+
+
+printf "%-30s %s\n" "UserID" "Project"
+printf "%-30s %s\n" "------" "-------"
+
+oc get projects -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' \
+| while IFS= read -r ns; do
+  [[ $ns == *-devspaces ]] || continue
+
+  user="${ns%-devspaces}"
+  printf "%-30s %s\n" "$user" "$ns"
+  
+done | sort

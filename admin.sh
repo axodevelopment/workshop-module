@@ -26,14 +26,14 @@ show_usage() {
     echo "Usage: $0 [command]"
     echo ""
     echo "Available commands:"
-    echo -e "  ${GREEN}get-users${NC}      - Gets a list of users based upon project naming"
-    echo -e "  ${GREEN}check-resources${NC}     - Checks resources per user"
-    echo -e "  ${GREEN}pvcs${NC} - Check/deploy required components"
+    echo -e "  ${GREEN}getusers${NC}           - Gets a list of users based upon project naming"
+    echo -e "  ${GREEN}checkresources${NC}     - Checks resources per user"
+    echo -e "  ${GREEN}pvcs${NC}               - Check/deploy required components"
     echo ""
     echo "Examples:"
-    echo "  $0 check"
-    echo "  $0 deploy"
-    echo "  $0 components"
+    echo "  $0 getusers"
+    echo "  $0 checkresources"
+    echo "  $0 pvcs"
     echo ""
 }
 
@@ -60,14 +60,14 @@ run_script() {
 
 
 case "${1:-}" in
-    "check")
-        run_script "validate-workshop.sh"
+    "getusers")
+        run_script "get-users.sh"
         ;;
-    "deploy")
-        run_script "build-deploy.sh"
+    "checkresources")
+        run_script "check-resources.sh"
         ;;
-    "components")
-        run_script "deploy-dep.sh"
+    "pvcs")
+        run_script "pvcs.sh"
         ;;
     "help"|"-h"|"--help")
         show_usage
