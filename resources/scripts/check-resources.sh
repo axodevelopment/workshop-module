@@ -72,7 +72,7 @@ while IFS= read -r varusrproject; do
       continue
     fi
 
-    print_status INFO "oc get "$vark8skind" "$vark8sname" -n "$varusrproject""
+    # print_status INFO "oc get "$vark8skind" "$vark8sname" -n "$varusrproject""
     
     # Run: oc get $vark8skind $vark8sname -n $varusrproject
     if oc get "$vark8skind" "$vark8sname" -n "$varusrproject" >/dev/null 2>&1; then

@@ -1,0 +1,14 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: fraud-check
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: fraudCheck
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: mizuho-workshop-4
