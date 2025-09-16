@@ -53,5 +53,7 @@ oc get projects -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' \
 
   user="${ns%-devspaces}"
   printf "%-30s %s\n" "$user" "$ns"
-  
+
 done | sort
+
+echo ""

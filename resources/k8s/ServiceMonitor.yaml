@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: greeting-otel
+  labels:
+    app: greeting
+spec:
+  selector:
+    matchLabels:
+      app: greeting
+  endpoints:
+    - port: otel-metrics
+      path: /metrics
+      interval: 30s

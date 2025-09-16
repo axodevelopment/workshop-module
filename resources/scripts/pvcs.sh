@@ -42,3 +42,13 @@ print_status() {
             ;;
     esac
 }
+
+
+printf "%-24s %-36s %-12s %-25s %s\n" "Namespace" "PVC" "Phase" "DeletionTimestamp" "Finalizers"
+
+
+oc get pvc --all-namespaces -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.name}{"\t"}{.status.phase}{"\t"}{.metadata.deletionTimestamp}{"\t"}{range .metadata.finalizers[*]}{.}{","}{end}{"\n"}{end}' \
+| awk -F'\t' '$4 != "" { gsub(/,+$/,"",$5); printf "%-24s %-36s %-12s %-25s %s\n", $1, $2, $3, $4, $5 }' \
+| LC_ALL=C sort
+
+echo ""
